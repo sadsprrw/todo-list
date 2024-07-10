@@ -1,0 +1,33 @@
+@import "todo-list";
+
+body {
+  height: 100vh;
+  font-family: "Roboto Thin", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+svg {
+  padding: 0;
+}
+
+button, input {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  height: 60px;
+  background-color: #474747;
+}
+
+footer {
+  height: 270px;
+  background-color: #474747;
+}
