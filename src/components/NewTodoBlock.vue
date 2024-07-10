@@ -121,8 +121,5 @@ export default defineComponent({
     color: red;
   }
 }
-.todo-list--header {
-
-}
 
 </style>

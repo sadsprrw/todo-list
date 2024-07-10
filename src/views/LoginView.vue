@@ -5,19 +5,18 @@
       <div>Loading...</div>
     </div>
     <div v-else class="main-container">
-      <LogInForm @login="login"/>
+      <LogInForm :validation-message="validationMessage" @login="login"/>
     </div>
     <footer />
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 import LogInForm from "@/components/LogInForm.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { User } from "@/common/types/types";
-// import { useStore } from 'vuex'
 
 export default defineComponent({
   name: "LoginView",
@@ -28,6 +27,7 @@ export default defineComponent({
 
     const loading = computed(() => store.state.loading);
     const usersList = computed(() => store.state.usersList);
+    let validationMessage = ref('');
 
     function login(data: any) {
       const { username, phone } = data;
@@ -36,6 +36,7 @@ export default defineComponent({
       if (user) {
         store.commit('setLoading', true);
 
+        validationMessage.value = "";
         store.commit('setUser', user);
         store.dispatch('getTodosList');
         store.commit('syncStaredTodoList');
@@ -43,10 +44,17 @@ export default defineComponent({
 
         store.commit('setLoading', false);
       }
+      else {
+        validationMessage.value = "login error";
+      }
     }
 
 
-    return { loading, login };
+    return {
+      loading,
+      validationMessage,
+      login
+    };
   }
 });
 </script>

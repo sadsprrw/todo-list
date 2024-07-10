@@ -1,7 +1,7 @@
 <template>
   <div class="login-form">
     <div class="login-form--header">Log In</div>
-    <div class="login-form--description">description</div>
+    <div class="login-form--validation"> {{ validationMessage  }}</div>
     <div class="login-form--content">
       <input
           class="login-form--content-input"
@@ -29,6 +29,12 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: 'LogInForm',
+  props: {
+    validationMessage: {
+      type: String,
+      required: true
+    },
+  },
   setup() {
     let username: string = '';
     let phone: string = '';
@@ -68,7 +74,9 @@ export default defineComponent({
     text-align: center;
   }
 
-  &--description {
+  &--validation {
+    color: red;
+    height: 21px;
     padding: 0 25px;
     font-size: 15px;
   }
