@@ -1,0 +1,95 @@
+.todo-list {
+  width: calc(100% - 100px);
+  min-height: calc(100% - 206px - 260px);
+  background-color: white;
+  overflow-y: scroll;
+  padding: 10px 50px;
+
+  &--items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__item {
+    border: 1px solid #777777;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-data {
+      display: flex;
+      align-items: center;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      padding-left: 10px;
+      word-wrap: break-word;
+    }
+
+    &-title {
+      font-size: 18px;
+    }
+
+    &-assignee {
+      color: #777777;
+      font-size: 12px;
+    }
+  }
+
+  &--header {
+    font-weight: bold;
+    font-size: 18px;
+    color: #777777;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  &__icon {
+    vertical-align: center;
+    width: 25px;
+    height: 25px;
+
+    & > path {
+      fill: rgb(229, 206, 54);
+    }
+
+  }
+
+  &--actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    &-input {
+      border-radius: 5px;
+      border: 1px solid #5F5F5F;
+      width: calc(100% - 270px);
+      padding: 5px 0 5px 5px;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: bold;
+
+      &::placeholder {
+        color: #5F5F5F;
+      }
+    }
+
+    &-select {
+      border-radius: 5px;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 5px 0 5px 5px;
+      margin: 0;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: bold;
+      color: #5F5F5F;
+    }
+  }
+}
